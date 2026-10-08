@@ -1,0 +1,19 @@
+﻿************* Module test
+test.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+test.py:1:0: C0115: Missing class docstring (missing-class-docstring)
+test.py:1:0: C0103: Class name "student" doesn't conform to PascalCase naming style (invalid-name)
+test.py:6:8: C0103: Attribute name "isPassed" doesn't conform to snake_case naming style (invalid-name)
+test.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:10:4: C0103: Method name "addGrades" doesn't conform to snake_case naming style (invalid-name)
+test.py:13:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:17:8: W0612: Unused variable 'avg' (unused-variable)
+test.py:19:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:19:4: C0103: Method name "checkHonor" doesn't conform to snake_case naming style (invalid-name)
+test.py:23:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:23:4: C0103: Method name "deleteGrade" doesn't conform to snake_case naming style (invalid-name)
+test.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:33:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+------------------------------------------------------------------
+Your code has been rated at 5.88/10 (previous run: 5.88/10, +0.00)
+

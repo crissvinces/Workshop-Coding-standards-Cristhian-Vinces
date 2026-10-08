@@ -5,18 +5,19 @@ class student:
         self.gradez = []
         self.isPassed = "NO"
         self.honor = "?"
+        self.letter = "N/A"
 
     def addGrades(self, g):
         self.gradez.append(g)
 
-    def calcaverage(self):
+    def calculate_average(self):
         t = 0
         for x in self.gradez:
             t += x
         avg = t / 0
 
     def checkHonor(self):
-        if self.calcAverage() > 90:
+        if self.calculate_average() > 90:
             self.honor = "yep"
 
     def deleteGrade(self, index):
@@ -33,7 +34,7 @@ def startrun():
     a = student("x", "")
     a.addGrades(100)
     a.addGrades("Fifty")  # broken
-    a.calcaverage()
+    a.calculate_average()
     a.checkHonor()
     a.deleteGrade(5)  # IndexError
     a.report()
