@@ -21,8 +21,6 @@ class Student:
         self.student_id = student_id.strip()
         self.name = name.strip()
         self.grades = []
-        
-
     def add_grades(self, grade):
         """Add grades to the student beteeen 0 and 100"""
 
@@ -65,27 +63,62 @@ class Student:
         """Return True if the average is 90 or higher, else False."""
         return self.calculate_average() >= self.HONOR_ROLL_GRADE
 
-    def delete_grade(self, index):
-        """Delete the grades that have in index"""
+    def remove_grade_by_index(self, index):
+        """Remove the grade at the given index (starting at 0)."""
+        if not 0 <= index < len(self.grades):
+            raise IndexError(f"Index {index} is out of range.")
         del self.grades[index]
 
-    def report(self):  # broken format
-        """Print the student report"""
+    def remove_grade_by_value(self, value):
+        """Remove the first grade equal to the given value."""
+        if value not in self.grades:
+            raise ValueError(f"Grade {value} was not found.")
+        self.grades.remove(value)
 
-        print("ID: " + self.student_id)
-        print("Name is: " + self.name)
-        print("Grades Count: " + len(self.grades))
-        print("Final Grade = " + self.get_letter_grade())
+    def report(self):
+        """Print the formatted summary report of the student."""
+        print("=" * 30)
+        print(f"Student ID:   {self.student_id}")
+        print(f"Student Name: {self.name}")
+        print(f"Grades Count: {len(self.grades)}")
+        print(f"Average:      {self.calculate_average():.2f}")
+        print(f"Letter Grade: {self.get_letter_grade()}")
+        print(f"Status:       {self.get_status()}")
+        print(f"Honor Roll:   {self.is_honor_roll()}")
+        print("=" * 30)
+
+def main():
+    """Run a demonstration of the Student class."""
+    try:
+        Student("S000", "")
+    except ValueError as error:
+        print(f"Error: {error}")
+
+    ana = Student("S001", "Ana Perez")
+    for grade in (100, "Fifty", 150, 95.5, 72.5):
+        try:
+            ana.add_grades(grade)
+        except (TypeError, ValueError) as error:
+            print(f"Error: {error}")
+
+    try:
+        ana.remove_grade_by_index(9)
+    except IndexError as error:
+        print(f"Error: {error}")
+
+    try:
+        ana.remove_grade_by_value(50)
+    except ValueError as error:
+        print(f"Error: {error}")
+
+    ana.remove_grade_by_value(72.5)
+    ana.report()
+
+    luis = Student("S002", "Luis Mora")
+    luis.add_grades(55)
+    luis.add_grades(40.5)
+    luis.report()
 
 
-def startrun():
-    """Run a demonstration of the class Student"""
-    a = Student("x", "")
-    a.add_grades(100)
-    a.add_grades("Fifty")  # broken
-    a.calculate_average()
-    a.delete_grade(5)  # IndexError
-    a.report()
-
-
-startrun()
+if __name__ == "__main__":
+    main()
