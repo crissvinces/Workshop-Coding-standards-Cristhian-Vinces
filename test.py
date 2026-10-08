@@ -1,10 +1,10 @@
 class student:
-    def __init__(s, id, name):
-        s.id = id
-        s.name = name
-        s.gradez = []
-        s.isPassed = "NO"
-        s.honor = "?"
+    def __init__(self, student_id, name):
+        self.student_id = student_id
+        self.name = name
+        self.gradez = []
+        self.isPassed = "NO"
+        self.honor = "?"
 
     def addGrades(self, g):
         self.gradez.append(g)
@@ -23,7 +23,7 @@ class student:
         del self.gradez[index]
 
     def report(self):  # broken format
-        print("ID: " + self.id)
+        print("ID: " + self.student_id)
         print("Name is: " + self.name)
         print("Grades Count: " + len(self.gradez))
         print("Final Grade = " + self.letter)
